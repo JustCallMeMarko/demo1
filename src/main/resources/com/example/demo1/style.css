@@ -1,0 +1,12 @@
+#login-container {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-radius: 4px;
+}
+
+#login-btn {
+    -fx-background-color:  "#f49146";
+}
+#login-btn:hover {
+    -fx-background-color:  "#ffaf49";
+}
