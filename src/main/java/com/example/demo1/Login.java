@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Login extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("hello-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("Admin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
         scene.getStylesheets().add(Login.class.getResource("style.css").toExternalForm());
         stage.setTitle("BentoPanda | login");
