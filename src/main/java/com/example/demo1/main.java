@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Login extends Application {
+public class main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Login.class.getResource("Admin.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(main.class.getResource("Admin.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        scene.getStylesheets().add(Login.class.getResource("style.css").toExternalForm());
+        scene.getStylesheets().add(main.class.getResource("style.css").toExternalForm());
         stage.setTitle("BentoPanda | login");
         stage.setScene(scene);
         stage.setMaximized(true);
