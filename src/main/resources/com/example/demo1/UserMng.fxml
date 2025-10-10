@@ -17,16 +17,16 @@
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
     <center>
         <Pane prefHeight="200.0" prefWidth="1087.0" style="-fx-background-color: black;" stylesheets="@style.css" BorderPane.alignment="CENTER">
-            <children>
-                <LineChart layoutX="103.0" layoutY="59.0" style="-fx-background-color: white;">
-                    <xAxis>
-                        <CategoryAxis side="BOTTOM" />
-                    </xAxis>
-                    <yAxis>
-                        <NumberAxis side="LEFT" />
-                    </yAxis>
-                </LineChart>
-            </children></Pane>
+         <children>
+            <LineChart layoutX="103.0" layoutY="59.0" style="-fx-background-color: white;">
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children></Pane>
     </center>
     <left>
         <GridPane prefHeight="838.0" prefWidth="256.0" BorderPane.alignment="CENTER">
@@ -45,22 +45,22 @@
                         <Image url="@images/BentoPanda.png" />
                     </image>
                 </ImageView>
-                <Label id="selected" alignment="CENTER" prefHeight="46.0" prefWidth="204.0" styleClass="selected" stylesheets="@style.css" text="Analytics" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                    <font>
-                        <Font name="System Italic" size="16.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Label>
-                <Label alignment="CENTER" layoutX="10.0" layoutY="278.0" prefHeight="46.0" prefWidth="204.0" text="User Management" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                    <font>
-                        <Font size="16.0" />
-                    </font>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </Label>
+            <Label id="selected" alignment="CENTER" prefHeight="46.0" prefWidth="204.0" styleClass="selected" stylesheets="@style.css" text="Analytics" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Italic" size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="278.0" prefHeight="46.0" prefWidth="204.0" text="User Management" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font size="16.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
             </children>
         </GridPane>
     </left>

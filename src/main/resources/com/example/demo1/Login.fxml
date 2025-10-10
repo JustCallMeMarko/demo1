@@ -22,7 +22,7 @@
          <children>
             <TextField fx:id="nameInput" focusTraversable="false" layoutX="26.0" layoutY="35.0" prefHeight="42.0" prefWidth="267.0" promptText="Username" />
             <PasswordField fx:id="passInput" focusTraversable="false" layoutX="26.0" layoutY="100.0" prefHeight="42.0" prefWidth="267.0" promptText="Password" />
-            <Button id="login-btn" fx:id="loginBtn" layoutX="26.0" layoutY="205.0" mnemonicParsing="false" onAction="#login" prefHeight="42.0" prefWidth="267.0" stylesheets="@style.css" text="LOGIN" textFill="WHITE">
+            <Button id="login-btn" layoutX="26.0" layoutY="205.0" mnemonicParsing="false" onAction="#sample" prefHeight="42.0" prefWidth="267.0" stylesheets="@style.css" text="LOGIN" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -30,7 +30,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Label fx:id="adminBtn" layoutX="112.0" layoutY="272.0" prefHeight="20.0" prefWidth="97.0" text="Login as Admin" textFill="#1aa4ff">
+            <Label layoutX="112.0" layoutY="272.0" prefHeight="20.0" prefWidth="97.0" text="Login as Admin" textFill="#1aa4ff">
                <font>
                   <Font size="14.0" />
                </font>
@@ -38,7 +38,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label fx:id="forgotBtn" layoutX="26.0" layoutY="156.0" prefHeight="20.0" prefWidth="115.0" text="Forgot password?" underline="true">
+            <Label layoutX="26.0" layoutY="156.0" prefHeight="20.0" prefWidth="115.0" text="Forgot password?" underline="true">
                <font>
                   <Font size="14.0" />
                </font>
@@ -46,7 +46,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Pane fx:id="settingBtn" layoutX="26.0" layoutY="322.0" prefHeight="30.0" prefWidth="105.0">
+            <Pane layoutX="26.0" layoutY="322.0" prefHeight="30.0" prefWidth="105.0">
                <children>
                   <Label layoutX="42.0" layoutY="2.0" prefHeight="26.0" prefWidth="73.0" text="Settings">
                      <font>
@@ -63,7 +63,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Pane>
-            <Label fx:id="enBtn" layoutX="244.0" layoutY="325.0" text="EN">
+            <Label layoutX="244.0" layoutY="325.0" text="EN">
                <font>
                   <Font size="16.0" />
                </font>
@@ -71,7 +71,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label fx:id="phBtn" layoutX="272.0" layoutY="325.0" text="PH">
+            <Label layoutX="272.0" layoutY="325.0" text="PH">
                <font>
                   <Font size="16.0" />
                </font>
