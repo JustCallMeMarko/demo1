@@ -1,6 +1,6 @@
 #login-container {
     -fx-background-color: white;
-    -fx-border-color: black;
+    -fx-border-color: "#DADADA";
     -fx-border-radius: 4px;
 }
 
@@ -13,6 +13,6 @@
 
 .selected {
     -fx-background-color: black;
-    -fx-background-radius: 4px;
+    -fx-background-radius: 8px;
     -fx-text-fill: white;
 }
