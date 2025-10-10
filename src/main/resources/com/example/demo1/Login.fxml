@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="763.0" prefWidth="1004.0" style="-fx-background-color: &quot;#fffcf5&quot;;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" orientation="VERTICAL" prefHeight="763.0" prefWidth="1004.0" style="-fx-background-color: &quot;#fffcf5&quot;;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.LoginController">
    <children>
       <ImageView fitHeight="245.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -20,9 +20,9 @@
       </ImageView>
       <Pane id="login-container" prefHeight="369.0" prefWidth="320.0" stylesheets="@style.css">
          <children>
-            <TextField focusTraversable="false" layoutX="26.0" layoutY="35.0" prefHeight="42.0" prefWidth="267.0" promptText="Username" />
-            <PasswordField focusTraversable="false" layoutX="26.0" layoutY="100.0" prefHeight="42.0" prefWidth="267.0" promptText="Password" />
-            <Button id="login-btn" layoutX="26.0" layoutY="205.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="267.0" stylesheets="@style.css" text="LOGIN" textFill="WHITE">
+            <TextField fx:id="nameInput" focusTraversable="false" layoutX="26.0" layoutY="35.0" prefHeight="42.0" prefWidth="267.0" promptText="Username" />
+            <PasswordField fx:id="passInput" focusTraversable="false" layoutX="26.0" layoutY="100.0" prefHeight="42.0" prefWidth="267.0" promptText="Password" />
+            <Button id="login-btn" layoutX="26.0" layoutY="205.0" mnemonicParsing="false" onAction="#sample" prefHeight="42.0" prefWidth="267.0" stylesheets="@style.css" text="LOGIN" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
