@@ -4,60 +4,57 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080" prefWidth="1920" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
-    <center>
-        <Pane prefHeight="200.0" prefWidth="1087.0" style="-fx-background-color: black;" stylesheets="@style.css" BorderPane.alignment="CENTER" />
-    </center>
-    <left>
-        <GridPane prefHeight="838.0" prefWidth="256.0" BorderPane.alignment="CENTER">
-            <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints maxHeight="217.60000610351562" minHeight="10.0" prefHeight="217.60000610351562" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="172.79998779296872" minHeight="0.0" prefHeight="45.6000061035156" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="346.0" minHeight="0.0" prefHeight="52.79999389648435" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="308.0000305175781" minHeight="0.0" prefHeight="43.20002441406251" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="504.80000000000007" minHeight="10.0" prefHeight="479.9999755859374" vgrow="SOMETIMES" />
-            </rowConstraints>
-            <children>
-                <ImageView fitHeight="185.0" fitWidth="270.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@images/BentoPanda.png" />
-                    </image>
-                </ImageView>
-            <Label id="selected" alignment="CENTER" prefHeight="46.0" prefWidth="204.0" styleClass="selected" stylesheets="@style.css" text="Analytics" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="796.0" prefWidth="1586.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.AdminController">
+   <children>
+      <AnchorPane layoutX="22.0" layoutY="159.0" prefHeight="1080.0" prefWidth="250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="176.0" fitWidth="250.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <image>
+                  <Image url="@images/BentoPanda.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="analyticsLabel" alignment="CENTER" layoutX="8.0" layoutY="167.0" onMouseClicked="#goToAnalytics" prefHeight="42.0" prefWidth="234.0" styleClass="selected" stylesheets="@style.css" text="Analytics" AnchorPane.topAnchor="167.0">
                <font>
-                  <Font name="System Italic" size="16.0" />
+                  <Font size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" layoutX="36.0" layoutY="228.0" prefHeight="46.0" prefWidth="204.0" text="Stocks" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <Label fx:id="userMngLabel" alignment="CENTER" layoutX="8.0" layoutY="217.0" onMouseClicked="#goToUserMng" prefHeight="42.0" prefWidth="234.0" styleClass="menu-item" stylesheets="@style.css" text="User Management">
                <font>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="278.0" prefHeight="46.0" prefWidth="204.0" text="User Management" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.rowIndex="3">
-               <font>
-                  <Font size="16.0" />
-               </font>
+            <HBox alignment="CENTER" layoutX="8.0" layoutY="1023.0" onMouseClicked="#logout" prefHeight="42.0" prefWidth="234.0" styleClass="menu-item" stylesheets="@style.css" AnchorPane.bottomAnchor="14.599999999999909">
+               <children>
+                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="174.0" styleClass="menu-item" stylesheets="@style.css" text="User Management">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="17.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Logout.png" />
+                     </image>
+                  </ImageView>
+               </children>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-            </Label>
-            </children>
-        </GridPane>
-    </left>
-</BorderPane>
+            </HBox>
+         </children>
+      </AnchorPane>
+       <AnchorPane fx:id="contentPane" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+           <fx:include source="Analytics.fxml" />
+       </AnchorPane>
+
+   </children>
+</AnchorPane>

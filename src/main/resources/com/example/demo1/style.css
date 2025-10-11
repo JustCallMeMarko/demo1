@@ -10,9 +10,17 @@
 #login-btn:hover {
     -fx-background-color:  "#ffaf49";
 }
-
+.menu-item:hover {
+    -fx-background-color: "#cdd3e2";
+    -fx-background-radius: 8px;
+}
 .selected {
     -fx-background-color: black;
-    -fx-background-radius: 4px;
+    -fx-background-radius: 8px;
     -fx-text-fill: white;
+}
+
+.bento-container {
+    -fx-background-color: white;
+    -fx-background-radius: 8px;
 }
