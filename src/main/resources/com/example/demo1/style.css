@@ -24,3 +24,13 @@
     -fx-background-color: white;
     -fx-background-radius: 8px;
 }
+
+.discountBtn{
+    -fx-background-radius: 10px;
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+.discountBtn:hover{
+    -fx-background-color: "#4d5056";
+}

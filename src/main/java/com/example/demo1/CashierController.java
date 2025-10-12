@@ -27,4 +27,23 @@ public class CashierController {
 
         stage.setOnShown(ev -> stage.setMaximized(true));
     }
+    @FXML
+    private void bento(MouseEvent e){
+        //TODO: add bento
+    }
+
+    @FXML
+    private void ramen(MouseEvent e){
+        //TODO: add ramen
+    }
+
+    @FXML
+    private void sides(MouseEvent e){
+        //TODO: add sides
+    }
+
+    @FXML
+    private void drinks(MouseEvent e){
+        //TODO: add drinks
+    }
 }
