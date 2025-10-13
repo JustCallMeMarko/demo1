@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -43,8 +44,34 @@ public class AdminController {
 
     @FXML
     private void goToUserMng(MouseEvent e) throws IOException {
-        System.out.println("go to user mng");
-        Parent userMngView = FXMLLoader.load(getClass().getResource("UserMng.fxml"));
+        System.out.println("Go to User Management");
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UserMng.fxml"));
+        Parent userMngView = loader.load();
+
+        Button addUserBtn = (Button) userMngView.lookup("#addUserBtn");
+        Button viewUserBtn = (Button) userMngView.lookup("#viewUserBtn");
+
+        if (addUserBtn != null) {
+            addUserBtn.setOnMouseClicked(evt -> {
+                try {
+                    goToAddUser(evt);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
+        }
+
+        if (viewUserBtn != null) {
+            viewUserBtn.setOnMouseClicked(evt -> {
+                try {
+                    goToViewUser(evt);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
+        }
+
         contentPane.getChildren().setAll(userMngView);
         setSelected(userMngLabel);
     }
@@ -65,5 +92,46 @@ public class AdminController {
         stage.setOnShown(ev -> stage.setMaximized(true));
     }
 
+    @FXML
+    private void goToAddUser(MouseEvent e) throws IOException {
+        System.out.println("Go to Add User");
 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("AddUser.fxml"));
+        Parent addUserView = loader.load();
+
+        Button backBtn = (Button) addUserView.lookup("#backBtn");
+        if (backBtn != null) {
+            backBtn.setOnMouseClicked(evt -> {
+                try {
+                    goToUserMng(evt);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
+        }
+
+        contentPane.getChildren().setAll(addUserView);
+    }
+
+
+    @FXML
+    private void goToViewUser(MouseEvent e) throws IOException {
+        System.out.println("Go to Add User");
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ViewUser.fxml"));
+        Parent addUserView = loader.load();
+
+        Button backBtn = (Button) addUserView.lookup("#backBtn");
+        if (backBtn != null) {
+            backBtn.setOnMouseClicked(evt -> {
+                try {
+                    goToUserMng(evt);
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+            });
+        }
+
+        contentPane.getChildren().setAll(addUserView);
+    }
 }

@@ -1,13 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="794.0" prefWidth="1335.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="794.0" prefWidth="1335.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.AdminController">
    <children>
-      <VBox prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="35.0" />
-      <VBox layoutX="85.0" layoutY="110.0" prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="85.0" />
-      <VBox layoutX="550.0" layoutY="35.0" prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="35.0" />
-      <VBox layoutX="550.0" layoutY="408.0" prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="75.0" />
+      <VBox alignment="CENTER" layoutX="176.0" layoutY="186.0" prefHeight="422.0" prefWidth="983.0" spacing="20.0" styleClass="bento-container" stylesheets="@style.css">
+         <children>
+            <VBox alignment="CENTER">
+               <children>
+                  <Label text="User Management">
+                     <font>
+                        <Font name="System Bold" size="40.0" />
+                     </font>
+                  </Label>
+                  <Label text="Manage Cashier Users and Admin Accounts" />
+               </children>
+            </VBox>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Button fx:id="viewUserBtn" mnemonicParsing="false" prefHeight="48.0" prefWidth="240.0" styleClass="secondaryBtn" stylesheets="@style.css" text="View User List">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button fx:id="addUserBtn" mnemonicParsing="false" prefHeight="48.0" prefWidth="240.0" styleClass="primaryBtn" stylesheets="@style.css" text="Add a User/Admin">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </HBox>
+         </children></VBox>
    </children>
 </AnchorPane>

@@ -1,12 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="794.0" prefWidth="1335.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="794.0" prefWidth="1285.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <VBox prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="35.0" />
-        <VBox layoutX="85.0" layoutY="110.0" prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="85.0" />
-        <VBox layoutX="550.0" layoutY="408.0" prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="75.0" />
+        <VBox prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.leftAnchor="85.0" AnchorPane.topAnchor="35.0">
+         <children>
+            <Label text="Sales Performance Analytics">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <BarChart>
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding></VBox>
+        <VBox layoutX="85.0" layoutY="110.0" prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="85.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label text="Monthly Revenue Analytics">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <LineChart>
+              <xAxis>
+                <CategoryAxis side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis side="LEFT" />
+              </yAxis>
+            </LineChart>
+         </children></VBox>
+        <VBox layoutX="550.0" layoutY="408.0" prefHeight="350.0" prefWidth="550.0" spacing="15.0" styleClass="bento-container" stylesheets="@style.css" AnchorPane.bottomAnchor="35.0" AnchorPane.rightAnchor="75.0">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <ChoiceBox prefWidth="150.0" style="-fx-background-color: white; -fx-border-color: black; -fx-border-radius: 2px;" />
+            <Pane prefHeight="260.0" prefWidth="510.0" style="-fx-border-color: black; -fx-border-radius: 6px;">
+               <children>
+                  <Label layoutX="14.0" layoutY="15.0" text="Total Sales">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalLabel" alignment="CENTER" layoutY="25.0" prefHeight="109.0" prefWidth="510.0" text="12,345">
+                     <font>
+                        <Font size="96.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="transactLabel" alignment="CENTER" layoutY="148.0" prefHeight="18.0" prefWidth="510.0" text="858 Transactions" textFill="#0000007e" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </Pane>
+         </children></VBox>
+      <VBox layoutX="659.0" layoutY="35.0" prefHeight="350.0" prefWidth="550.0" styleClass="bento-container" stylesheets="@style.css">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label text="Product Sales">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <PieChart />
+         </children>
+      </VBox>
     </children>
 </AnchorPane>

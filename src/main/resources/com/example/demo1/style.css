@@ -25,12 +25,26 @@
     -fx-background-radius: 8px;
 }
 
-.discountBtn{
+.primaryBtn{
     -fx-background-radius: 10px;
     -fx-background-color: black;
     -fx-text-fill: white;
 }
 
-.discountBtn:hover{
+.primaryBtn:hover{
     -fx-background-color: "#4d5056";
+}
+
+.secondaryBtn{
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-color: black;
+
+}
+
+.secondaryBtn:hover{
+    -fx-background-color: "#cdd3e2";
+
 }

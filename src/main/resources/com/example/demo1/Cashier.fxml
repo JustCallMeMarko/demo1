@@ -151,7 +151,7 @@
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button fx:id="discountBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="63.0" styleClass="discountBtn" stylesheets="@style.css" text="Apply">
+                  <Button fx:id="discountBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="63.0" styleClass="primaryBtn" stylesheets="@style.css" text="Apply">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -201,7 +201,7 @@
                   </Label>
                </children>
             </HBox>
-            <Button fx:id="payBtn" mnemonicParsing="false" prefHeight="57.0" prefWidth="402.0" styleClass="discountBtn" stylesheets="@style.css" text="PAY">
+            <Button fx:id="payBtn" mnemonicParsing="false" prefHeight="57.0" prefWidth="402.0" styleClass="primaryBtn" stylesheets="@style.css" text="PAY">
                <font>
                   <Font size="16.0" />
                </font>
