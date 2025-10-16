@@ -31,9 +31,15 @@ public class AdminController {
     @FXML
     private Label viewUserLabel;
 
+    @FXML
+    private Label editPassLabel;
+
+    @FXML
+    private Label addItemLabel;
+
     //Change Design of Selected Menu
     private void setSelected(Label selectedLabel) {
-        for (Label label : new Label[]{analyticsLabel, addUserLabel, viewUserLabel}) {
+        for (Label label : new Label[]{analyticsLabel, addUserLabel, viewUserLabel, editPassLabel, addItemLabel}) {
             label.getStyleClass().removeAll("selected", "menu-item");
             label.getStyleClass().add("menu-item");
         }
@@ -52,17 +58,33 @@ public class AdminController {
 
     @FXML
     private void goToAddUser(MouseEvent e) throws IOException {
-        System.out.println("go to analytics");
+        System.out.println("go to add user");
         Parent analyticsView = FXMLLoader.load(getClass().getResource("AddUser.fxml"));
         contentPane.getChildren().setAll(analyticsView);
         setSelected(addUserLabel);
     }
     @FXML
     private void goToViewUser(MouseEvent e) throws IOException {
-        System.out.println("go to analytics");
+        System.out.println("go to view user");
         Parent analyticsView = FXMLLoader.load(getClass().getResource("ViewUser.fxml"));
         contentPane.getChildren().setAll(analyticsView);
         setSelected(viewUserLabel);
+    }
+
+    @FXML
+    private void goToEditPass(MouseEvent e) throws IOException {
+        System.out.println("go to view user");
+        Parent analyticsView = FXMLLoader.load(getClass().getResource("EditPass.fxml"));
+        contentPane.getChildren().setAll(analyticsView);
+        setSelected(editPassLabel);
+    }
+
+    @FXML
+    private void goToAddItem(MouseEvent e) throws IOException {
+        System.out.println("go to view user");
+        Parent analyticsView = FXMLLoader.load(getClass().getResource("AddItem.fxml"));
+        contentPane.getChildren().setAll(analyticsView);
+        setSelected(addItemLabel);
     }
 
     //Go Back to Login View

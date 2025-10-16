@@ -71,20 +71,4 @@ public class Cashier {
         }
         return false;
     }
-
-    public static void addItemDb(String name, int price, File image) {
-        String sql = "INSERT INTO users (name, price, image) VALUES (?, ?, ?)";
-
-        try (Connection conn = DriverManager.getConnection(url, user, pass)){
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            FileInputStream fis = new FileInputStream(image);
-            pstmt.setString(1, name);
-            pstmt.setInt(2, price);
-            pstmt.setBinaryStream(3, fis, (int) image.length());
-        }catch (SQLException e) {
-            e.printStackTrace();
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

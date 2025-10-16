@@ -58,6 +58,22 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
+            <Label fx:id="editPassLabel" alignment="CENTER" layoutX="8.0" layoutY="320.0" onMouseClicked="#goToEditPass" prefHeight="42.0" prefWidth="234.0" styleClass="menu-item" stylesheets="@style.css" text="Edit User Password">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
+            <Label fx:id="addItemLabel" alignment="CENTER" layoutX="8.0" layoutY="370.0" onMouseClicked="#goToAddItem" prefHeight="42.0" prefWidth="234.0" styleClass="menu-item" stylesheets="@style.css" text="Add Item">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
          </children>
       </AnchorPane>
        <AnchorPane fx:id="contentPane" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

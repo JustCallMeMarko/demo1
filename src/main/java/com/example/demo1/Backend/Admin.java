@@ -39,6 +39,26 @@ public class Admin {
         }
     }
 
+    public static boolean updateUserDb(String id, String password) {
+        String sql = "UPDATE users SET pass = ? WHERE id = ?";
+        try (Connection conn = DriverManager.getConnection(url, user, pass)) {
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            pstmt.setString(1, password);
+            pstmt.setInt(2,Integer.parseInt(id));
+            int rowsUpdated = pstmt.executeUpdate();
+            if (rowsUpdated > 0) {
+                return true;
+            }else {
+                return false;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public static ObservableList<Users> getUsers(){
         String sql = "SELECT user_id, name, role FROM users";
         ObservableList<Users> userList = FXCollections.observableArrayList();
@@ -107,7 +127,6 @@ public class Admin {
         return weeklySales;
     }
 
-    // 2. MONTHLY REVENUE (Specific year)
     public static Map<String, Integer> getMonthlyRevenue(int year) {
         Map<String, Integer> monthlyRevenue = new HashMap<>();
         String sql = """
@@ -140,28 +159,6 @@ public class Admin {
         return monthlyRevenue;
     }
 
-
-    // 3. TOTAL SALES & TRANSACTIONS COUNT
-    public static Map<String, Integer> getTotalSalesAndTransactions() {
-        Map<String, Integer> totals = new HashMap<>();
-        String sql = "SELECT SUM(total) as total_sales, COUNT(transact_id) as total_transactions " +
-                "FROM transactions";
-
-        try (Connection conn = DriverManager.getConnection(url, user, pass);
-             PreparedStatement pstmt = conn.prepareStatement(sql);
-             ResultSet rs = pstmt.executeQuery()) {
-
-            if (rs.next()) {
-                totals.put("total_sales", rs.getInt("total_sales"));
-                totals.put("total_transactions", rs.getInt("total_transactions"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return totals;
-    }
-
-    // 4. MANUAL FILTER BY MONTH (Parameter: year and month)
     public static Map<String, Integer> getSalesByMonth(int year, int month) {
         Map<String, Integer> monthlyData = new HashMap<>();
         String sql = "SELECT SUM(total) as total_sales, COUNT(transact_id) as total_transactions " +
@@ -183,5 +180,29 @@ public class Admin {
             e.printStackTrace();
         }
         return monthlyData;
+    }
+
+    public static boolean addItemDb(String name, int price, String category,  File image) {
+        String sql = "INSERT INTO products (name, category, price, image) VALUES (?, ?, ?, ?)";
+
+        try (Connection conn = DriverManager.getConnection(url, user, pass)){
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            FileInputStream fis = new FileInputStream(image);
+            pstmt.setString(1, name);
+            pstmt.setString(2, category);
+            pstmt.setInt(3, price);
+            pstmt.setBinaryStream(4, fis, (int) image.length());
+            int rowsInserted = pstmt.executeUpdate();
+            if (rowsInserted > 0) {
+                return true;
+            }else{
+                return false;
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        return false;
     }
 }

@@ -109,4 +109,13 @@ public class LoginController {
         stage.setMaximized(true);
         stage.show();
     }
+    @FXML
+    public void forgotPassword(MouseEvent e) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Forgot Password");
+        alert.setHeaderText(null);
+        alert.setContentText("To reset your password, please contact your administrator.");
+        alert.showAndWait();
+        return;
+    }
 }
