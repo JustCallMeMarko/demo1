@@ -20,7 +20,7 @@
             <children>
                 <VBox alignment="CENTER">
                     <children>
-                        <Label text="Add User Password">
+                        <Label text="Add Item">
                             <font>
                                 <Font name="System Bold" size="40.0" />
                             </font>
