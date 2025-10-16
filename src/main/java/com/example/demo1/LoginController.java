@@ -90,7 +90,7 @@ public class LoginController {
         }
         if (role.equalsIgnoreCase("admin")) {
             file = "Admin.fxml";
-            title = "Admin Analytics";
+            title = "Admin";
         } else if (role.equalsIgnoreCase("user")) {
             file = "Cashier.fxml";
             title = "Cashier";
