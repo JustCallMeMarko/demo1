@@ -8,10 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
@@ -56,6 +53,17 @@ public class CashierController {
 
     @FXML
     private Label discountLabel;
+
+    @FXML
+    private TextField cashField;
+
+    @FXML
+    private Label changeLabel;
+
+    @FXML
+    private Button payButton;
+
+    private boolean paid = false;
 
     @FXML
     private TextField dicountCode;
@@ -170,11 +178,15 @@ public class CashierController {
     @FXML
     private void clearOrder(MouseEvent e) {
         Cashier.order.clear();
-        updateDiscount("0");
+        updateDiscount("₱0");
         resetCodeLimit();
         updateOrderList();
         Cashier.updateTotal();
         refreshTotal();
+        cashField.clear();
+        changeLabel.setText("₱0");
+        payButton.setDisable(false);
+        paid = false;
     }
 
     @FXML
@@ -205,27 +217,64 @@ public class CashierController {
 
     @FXML
     private void pay(MouseEvent e) throws IOException {
+        if (paid) {
+            clearOrder(e);
+            return;
+        }
+
+        if (cashField.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Missing Input");
+            alert.setHeaderText(null);
+            alert.setContentText("Please enter cash amount.");
+            alert.showAndWait();
+            return;
+        }
+
+        int cash;
+        try {
+            cash = Integer.parseInt(cashField.getText());
+        } catch (NumberFormatException ex) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Invalid Input");
+            alert.setHeaderText(null);
+            alert.setContentText("Cash amount must be a number.");
+            alert.showAndWait();
+            return;
+        }
+
+        int change = cash - Cashier.total;
+        if (change < 0) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Payment Unsuccessful");
+            alert.setHeaderText(null);
+            alert.setContentText("Insufficient funds.");
+            alert.showAndWait();
+            return;
+        }
+
+        changeLabel.setText("₱" + change);
+
         boolean res = Cashier.payDb();
-        if(res){
-            Cashier.order.clear();
-            updateDiscount("0");
-            resetCodeLimit();
-            updateOrderList();
-            Cashier.updateTotal();
-            refreshTotal();
+        if (res) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Payment Success");
             alert.setHeaderText(null);
-            alert.setContentText("Succesfully paid order and added to the database");
+            alert.setContentText("Successfully paid order and added to the database.");
             alert.showAndWait();
-        }else{
+
+            paid = true;
+            payButton.setDisable(true); // ✅ disable after successful payment
+        } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Payment Failed");
             alert.setHeaderText(null);
-            alert.setContentText("Payment record cannot be added to the database due to err: {UNKNOWN}");
+            alert.setContentText("Payment record cannot be added to the database due to an unknown error.");
             alert.showAndWait();
         }
     }
+
+
     @FXML
     private void logout(MouseEvent e) throws IOException {
         System.out.println("Logging out...");
