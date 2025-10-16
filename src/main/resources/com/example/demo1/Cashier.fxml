@@ -34,7 +34,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="12.0" layoutX="1686.0" layoutY="24.0" prefHeight="28.0" prefWidth="238.0" style="-fx-text-fill: black;" text="Account Name" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="24.0">
+            <Label fx:id="accName" alignment="CENTER_RIGHT" contentDisplay="RIGHT" graphicTextGap="12.0" layoutX="1686.0" layoutY="24.0" prefHeight="28.0" prefWidth="238.0" style="-fx-text-fill: black;" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="58.0" AnchorPane.topAnchor="24.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -52,7 +52,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="54.0" prefWidth="208.0" styleClass="selected" stylesheets="@style.css" text="Bento">
+            <Label fx:id="bentoLabel" alignment="CENTER" onMouseClicked="#setBento" prefHeight="54.0" prefWidth="208.0" styleClass="selected" stylesheets="@style.css" text="Bento">
                <font>
                   <Font size="18.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="17.0" prefHeight="54.0" prefWidth="208.0" styleClass="menu-item" stylesheets="@style.css" text="Ramen" GridPane.rowIndex="1">
+            <Label fx:id="ramenLabel" alignment="CENTER" layoutX="10.0" layoutY="17.0" onMouseClicked="#setRamen" prefHeight="54.0" prefWidth="208.0" styleClass="menu-item" stylesheets="@style.css" text="Ramen" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
@@ -74,7 +74,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="85.0" prefHeight="54.0" prefWidth="208.0" styleClass="menu-item" stylesheets="@style.css" text="Sides" GridPane.rowIndex="2">
+            <Label fx:id="sidesLabel" alignment="CENTER" layoutX="10.0" layoutY="85.0" onMouseClicked="#setSides" prefHeight="54.0" prefWidth="208.0" styleClass="menu-item" stylesheets="@style.css" text="Sides" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
@@ -85,7 +85,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="154.0" prefHeight="54.0" prefWidth="208.0" styleClass="menu-item" stylesheets="@style.css" text="Drinks" GridPane.rowIndex="3">
+            <Label fx:id="drinksLabel" alignment="CENTER" layoutX="10.0" layoutY="154.0" onMouseClicked="#setdrinks" prefHeight="54.0" prefWidth="208.0" styleClass="menu-item" stylesheets="@style.css" text="Drinks" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
@@ -110,7 +110,7 @@
                </font>
             </Label>
             <Line endX="580.8928833007812" startX="-100.0" stroke="#d9d9d9" strokeWidth="2.0" style="-fx-fill: &quot;#D9D9D9&quot;;" />
-            <GridPane fx:id="mealGrid" prefHeight="606.0" prefWidth="683.0">
+            <GridPane fx:id="menuGridPane" prefHeight="606.0" prefWidth="683.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -128,16 +128,26 @@
             <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
          </padding>
          <children>
-            <Label text="Order List">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
+            <HBox>
+               <children>
+                  <Label prefHeight="26.0" prefWidth="371.0" text="Order List">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="25.0" fitWidth="25.0" onMouseClicked="#clearOrder" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Clear.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </HBox>
             <Line endX="295.0928955078125" startX="-100.0" stroke="#d9d9d9" strokeWidth="2.0" style="-fx-fill: &quot;#D9D9D9&quot;;" />
-            <ScrollPane prefHeight="381.0" prefWidth="402.0">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-              </content>
+            <ScrollPane fx:id="scrollList" focusTraversable="false" prefHeight="381.0" prefWidth="402.0">
+                <VBox fx:id="orderListVBox" spacing="5" />
             </ScrollPane>
             <HBox alignment="CENTER" prefHeight="22.0" prefWidth="402.0" spacing="10.0">
                <children>
@@ -146,32 +156,19 @@
                         <Image url="@images/qrcode.png" />
                      </image>
                   </ImageView>
-                  <TextField fx:id="discountInput" focusTraversable="false" prefHeight="36.0" prefWidth="186.0">
+                  <TextField fx:id="dicountCode" focusTraversable="false" prefHeight="36.0" prefWidth="186.0">
                      <cursor>
                         <Cursor fx:constant="TEXT" />
                      </cursor>
                   </TextField>
-                  <Button fx:id="discountBtn" mnemonicParsing="false" prefHeight="27.0" prefWidth="63.0" styleClass="primaryBtn" stylesheets="@style.css" text="Apply">
+                  <Button fx:id="discountBtn" mnemonicParsing="false" onMouseClicked="#applyDiscount" prefHeight="27.0" prefWidth="63.0" styleClass="primaryBtn" stylesheets="@style.css" text="Apply">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
                </children>
             </HBox>
-            <HBox>
-               <children>
-                  <Label text="Subtotal">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="subtotalLabel" alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="338.0" text="0">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
+            <HBox />
             <HBox layoutX="30.0" layoutY="542.0">
                <children>
                   <Label prefHeight="26.0" prefWidth="79.0" text="Discount">
@@ -201,7 +198,7 @@
                   </Label>
                </children>
             </HBox>
-            <Button fx:id="payBtn" mnemonicParsing="false" prefHeight="57.0" prefWidth="402.0" styleClass="primaryBtn" stylesheets="@style.css" text="PAY">
+            <Button fx:id="payBtn" mnemonicParsing="false" onMouseClicked="#pay" prefHeight="57.0" prefWidth="402.0" styleClass="primaryBtn" stylesheets="@style.css" text="PAY">
                <font>
                   <Font size="16.0" />
                </font>

@@ -1,5 +1,7 @@
 package com.example.demo1;
 
+import com.example.demo1.Backend.Admin;
+import com.example.demo1.Backend.Login;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -72,26 +74,28 @@ public class LoginController {
             return;
         }
 
-        String file;
-        String title;
+        String file = "";
+        String title = "";
 
-        // Example role handling
-        if (name.equalsIgnoreCase("admin")) {
-            file = "Admin.fxml";
-            title = "Admin Analytics";
-        } else if (name.equalsIgnoreCase("user")) {
-            file = "Cashier.fxml";
-            title = "Cashier";
-        } else {
+        String role = new Login().loginDb(name, pass);
+
+        System.out.println("Login Success  " +  role + " " + name + " " + pass);
+        if (role == null) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Login Failed");
             alert.setHeaderText(null);
-            alert.setContentText("Invalid credentials. Try 'admin' or 'user'.");
+            alert.setContentText("Invalid credentials.");
             alert.showAndWait();
             return;
         }
+        if (role.equalsIgnoreCase("admin")) {
+            file = "Admin.fxml";
+            title = "Admin Analytics";
+        } else if (role.equalsIgnoreCase("user")) {
+            file = "Cashier.fxml";
+            title = "Cashier";
+        }
 
-        // Load next view cleanly
         FXMLLoader loader = new FXMLLoader(getClass().getResource(file));
         root = loader.load();
 
@@ -104,22 +108,5 @@ public class LoginController {
         stage.setTitle("BentoPanda | " + title);
         stage.setMaximized(true);
         stage.show();
-    }
-
-    // --- Settings Button Placeholder ---
-    @FXML
-    public void settings(ActionEvent e) {
-        System.out.println("Settings clicked!");
-        // TODO: implement settings
-    }
-
-    @FXML
-    public void forgotPassword(MouseEvent e) {
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Forgot Password");
-        alert.setHeaderText(null);
-        alert.setContentText("To reset your password, please contact your administrator.");
-        alert.showAndWait();
-        return;
     }
 }

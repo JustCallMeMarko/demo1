@@ -25,7 +25,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label fx:id="userMngLabel" alignment="CENTER" layoutX="8.0" layoutY="217.0" onMouseClicked="#goToUserMng" prefHeight="42.0" prefWidth="234.0" styleClass="menu-item" stylesheets="@style.css" text="User Management">
+            <Label fx:id="addUserLabel" alignment="CENTER" layoutX="8.0" layoutY="217.0" onMouseClicked="#goToAddUser" prefHeight="42.0" prefWidth="234.0" styleClass="menu-item" stylesheets="@style.css" text="Add User">
                <font>
                   <Font size="18.0" />
                </font>
@@ -35,7 +35,7 @@
             </Label>
             <HBox alignment="CENTER" layoutX="8.0" layoutY="1023.0" onMouseClicked="#logout" prefHeight="42.0" prefWidth="234.0" styleClass="menu-item" stylesheets="@style.css" AnchorPane.bottomAnchor="14.599999999999909">
                <children>
-                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="174.0" styleClass="menu-item" stylesheets="@style.css" text="User Management">
+                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="174.0" styleClass="menu-item" stylesheets="@style.css" text="Logout">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -50,6 +50,14 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </HBox>
+            <Label fx:id="viewUserLabel" alignment="CENTER" layoutX="8.0" layoutY="268.0" onMouseClicked="#goToViewUser" prefHeight="42.0" prefWidth="234.0" styleClass="menu-item" stylesheets="@style.css" text="View Users">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Label>
          </children>
       </AnchorPane>
        <AnchorPane fx:id="contentPane" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

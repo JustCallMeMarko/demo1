@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#addToOrder" prefHeight="160.0" prefWidth="320.0" styleClass="menu-card" stylesheets="@style.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.ProductCardController">
+   <children>
+      <ImageView fx:id="imageView" fitHeight="160.0" fitWidth="146.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox prefHeight="158.0" prefWidth="173.0">
+         <children>
+            <Label fx:id="nameLabel" prefHeight="119.0" prefWidth="170.0">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Label>
+            <Label fx:id="priceLabel" alignment="CENTER" prefHeight="37.0" prefWidth="171.0">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
+         </children>
+      </VBox>
+   </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</HBox>

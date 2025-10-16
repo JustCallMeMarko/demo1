@@ -46,5 +46,11 @@
 
 .secondaryBtn:hover{
     -fx-background-color: "#cdd3e2";
+}
 
+.menu-card{
+    -fx-background-color:  "#EEEEEE";
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-border-color: black;
 }
