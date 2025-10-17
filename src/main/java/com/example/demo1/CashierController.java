@@ -257,6 +257,18 @@ public class CashierController {
 
         boolean res = Cashier.payDb();
         if (res) {
+            //print receipt
+            for(Info info:  Cashier.order.values()) {
+                System.out.println("ITEM: " + info.getName());
+                System.out.println("PRICE: " +  info.getPrice());
+                System.out.println("QTY: " +  info.getQuantity());
+            }
+            System.out.println("---------------------------------------------------");
+            System.out.println("TOTAL: " + Cashier.total);
+            System.out.println("CASH: " + cash);
+            System.out.println("CHANGE: " + change);
+
+            //continuation of my other code
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Payment Success");
             alert.setHeaderText(null);
