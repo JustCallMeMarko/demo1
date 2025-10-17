@@ -34,10 +34,8 @@ public class LoginController {
     private Scene scene;
     private Parent root;
 
-    // --- Center the FlowPane dynamically ---
     @FXML
     public void initialize() {
-        // Run once scene is ready
         rootPane.sceneProperty().addListener((obs, oldScene, newScene) -> {
             if (newScene != null) {
                 // Center on initial layout and whenever size changes
@@ -52,14 +50,12 @@ public class LoginController {
         double x = (rootPane.getWidth() - myPane.getWidth()) / 2;
         double y = (rootPane.getHeight() - myPane.getHeight()) / 2;
 
-        // Only reposition if the pane has a valid size
         if (x >= 0 && y >= 0) {
             myPane.setLayoutX(x);
             myPane.setLayoutY(y);
         }
     }
 
-    // --- Handles Login Logic ---
     @FXML
     public void login(ActionEvent e) throws IOException {
         String name = nameInput.getText().trim();

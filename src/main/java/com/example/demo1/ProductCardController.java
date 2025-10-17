@@ -44,7 +44,7 @@ public class ProductCardController {
             cashierController.refreshTotal();
 // increment existing quantity
         } else {
-            info.setQuantity(1);                 // initialize quantity
+            info.setQuantity(1);
             Cashier.order.put(id, info);
             Cashier.updateTotal();
             cashierController.refreshTotal();

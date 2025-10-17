@@ -264,7 +264,7 @@ public class CashierController {
             alert.showAndWait();
 
             paid = true;
-            payButton.setDisable(true); // ✅ disable after successful payment
+            payButton.setDisable(true);
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Payment Failed");

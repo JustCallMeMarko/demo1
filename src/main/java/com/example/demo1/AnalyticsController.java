@@ -48,7 +48,7 @@ public class AnalyticsController {
 
     private void updateMonthlyData(String monthName) {
         int year = LocalDate.now().getYear();
-        int monthNumber = Month.valueOf(monthName).getValue(); // convert name → number (1–12)
+        int monthNumber = Month.valueOf(monthName).getValue();
 
         Map<String, Integer> data = Admin.getSalesByMonth(year, monthNumber);
 
@@ -77,7 +77,7 @@ public class AnalyticsController {
     }
 
     public void addMonthly(){
-        int year = LocalDate.now().getYear(); // example year, can be made dynamic
+        int year = LocalDate.now().getYear();
         Map<String, Integer> revenueData = Admin.getMonthlyRevenue(year);
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
@@ -94,11 +94,9 @@ public class AnalyticsController {
     private void addUserSales() {
         Map<String, Integer> userSales = Admin.getUserPerformance();
 
-        // Create a new series for the chart
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Total Sales");
 
-        // Add data from the Map
         for (Map.Entry<String, Integer> entry : userSales.entrySet()) {
             series.getData().add(new XYChart.Data<>(entry.getKey(), entry.getValue()));
         }

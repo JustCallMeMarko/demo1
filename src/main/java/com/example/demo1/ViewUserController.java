@@ -25,12 +25,10 @@ public class ViewUserController {
 
     @FXML
     public void initialize() {
-        // Link the columns to your model fields
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         roleColumn.setCellValueFactory(new PropertyValueFactory<>("role"));
 
-        // Example data
         ObservableList<Users> userList = Admin.getUsers();
         userTable.setItems(userList);
     }

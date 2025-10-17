@@ -29,9 +29,9 @@ public class Admin {
             int rowsInserted = pstmt.executeUpdate();
 
             if (rowsInserted > 0) {
-                System.out.println("✅ User added successfully!");
+                System.out.println("User added successfully!");
             } else {
-                System.out.println("⚠️ No user was added.");
+                System.out.println("No user was added.");
             }
 
         }catch (SQLException e) {
