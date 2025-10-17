@@ -259,6 +259,7 @@ public class CashierController {
         if (res) {
             //print receipt
             for(Info info:  Cashier.order.values()) {
+                System.out.println("---------------------------------------------------");
                 System.out.println("ITEM: " + info.getName());
                 System.out.println("PRICE: " +  info.getPrice());
                 System.out.println("QTY: " +  info.getQuantity());
